@@ -5,7 +5,7 @@ INSERT INTO users (name, email, password)
 
 
 
-INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, parking_space, number_of_bathrooms, number_of_bedrooms, country, street, city, province, post_code)
+INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, parking_spaces, number_of_bathrooms, number_of_bedrooms, country, street, city, province, post_code)
   VALUES (1, 'Su Residence', 'description', '123@photo.com', '111@photo.com', 20, 1, 1, 2, 'Canada', '111 Thomson Street', 'Burnaby', 'BC', 'V11 22W'),
   (1, 'John Residence', 'description', '223@photo.com', '222@photo.com', 15, 2, 0, 3, 'Canada', '59 Cross Road', 'Vancouver', 'BC', 'W00 5X7'),
   (1, 'Smith Residence', 'description', '333@photo.com', '555@photo.com', 100, 3, 5, 3, 'Canada', '223 Burren Avenue', 'Surrey', 'BC', 'V00 X2P');
