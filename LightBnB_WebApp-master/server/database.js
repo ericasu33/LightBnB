@@ -7,9 +7,6 @@ const pool = new Pool({
   database: 'lightbnb'
 });
 
-const properties = require('./json/properties.json');
-const users = require('./json/users.json');
-
 /// Users
 
 /**
@@ -117,7 +114,7 @@ const getAllProperties = function(options, limit = 20) {
   let queryStr = `
   SELECT properties.*, AVG(property_reviews.rating) AS average_rating
   FROM properties
-  FULL OUTER JOIN property_reviews ON property_reviews.property_id = properties.id
+  FULL JOIN property_reviews ON property_reviews.property_id = properties.id
   `;
 
   if (options.city) {
@@ -175,8 +172,6 @@ const getAllProperties = function(options, limit = 20) {
   LIMIT $${queryParams.length};
   `;
 
-  console.log(queryStr, queryParams);
-
   return pool.query(queryStr, queryParams)
     .then(res => res.rows);
 };
@@ -213,12 +208,7 @@ const addProperty = function(property) {
     property.number_of_bedrooms
   ];
 
-  console.log(queryStr, queryParams);
-
   return pool.query(queryStr, queryParams)
-    .then(res => {
-      console.log(res.rows);
-      return res.rows;
-    });
+    .then(res => res.rows);
 };
 exports.addProperty = addProperty;
